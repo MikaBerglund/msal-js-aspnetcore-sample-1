@@ -2,6 +2,12 @@
   "name": "msal_js_aspnetcore_sample_1",
   "version": "0.0.0",
   "dependencies": {
+    "@types/es6-promise": {
+      "version": "3.3.0",
+      "from": "@types/es6-promise@latest",
+      "resolved": "https://registry.npmjs.org/@types/es6-promise/-/es6-promise-3.3.0.tgz",
+      "dev": true
+    },
     "@types/history": {
       "version": "4.6.0",
       "from": "@types/history@4.6.0",
