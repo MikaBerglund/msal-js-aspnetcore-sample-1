@@ -3,7 +3,7 @@ MSAL JS ASP.NET Core Sample 1
 
 A small ASP.NET Core sample application that uses the MSAL JS library for authenticating the user completely client side.
 
-The application uses Microsoft Authentication Library for JavaScript (MSAL.js) to authenticate users completely on the client-side using only JavaScript (written in TypeScript of course).
+The application uses Microsoft Authentication Library for JavaScript (`MSAL.js`) to authenticate users completely on the client-side using only JavaScript (written in TypeScript of course).
 
 
 Prerequisites
