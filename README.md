@@ -16,6 +16,11 @@ This sample application is created and edited with the following tools. If you w
 3. A text editor suited for web development, such as Visual Studio Code [[read more...](https://code.visualstudio.com/)]
 
 
+Basic MSAL usage
+----------------
+
+For more information on how to use MSAL in your application, see [MSAL Usage](MSAL-Usage.md).
+
 Recreating the sample
 ---------------------
 
