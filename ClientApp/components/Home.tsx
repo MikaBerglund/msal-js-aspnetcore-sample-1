@@ -13,6 +13,12 @@ export class Home extends React.Component<RouteComponentProps<{}>, IUserInfoStat
 
         this.state = {};
 
+        // The application with the ID specified in the constructor allows only one of the
+        // following URLs to be used as redirect URLs
+        // - http://localhost:5000
+        // - https://localhost:5000
+        //
+        // If you need to use another redirect URL, you need to register your own application.
         this.msalApp = new UserAgentApplication("08275f8c-4635-40d0-a038-26f6623d511e", "https://login.microsoftonline.com/common", undefined, {
             redirectUri: "http://localhost:5000"
         });
