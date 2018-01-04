@@ -53,7 +53,11 @@ export class Home extends React.Component<RouteComponentProps<{}>, IUserInfoStat
                 var usr = this.msalApp.getUser();
                 console.log("Current user", usr);
                 this.setState({ currentUser: usr });
-            });
+            })
+            .catch(err => {
+                console.warn(err);
+            })
+            ;
     }
 
     private logout(): void {
