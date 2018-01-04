@@ -39,10 +39,55 @@ So, to allow only users from the `bisburger.com` tenant to log in to your applic
     https://login.microsoftonline.com/bisburger.com
 
 
+Read more about the v2.0 protocols on the [Azure documentation site](https://docs.microsoft.com/fi-fi/azure/active-directory/develop/active-directory-v2-protocols).
+
+
 Creating the `UserAgentApplication` instance
 ------------------------------------------
 
+To use the `UserAgentApplication` class in your script, you need the following import statement.
 
+    import { UserAgentApplication } from "msal";
+
+If you are building your application using `react`, then you could create the class instance in the constructor of your view component, and keep it available for the entire lifetime of that view.
+
+Creating an instance of this class does not yet invoke any methods for authentication, so it is quite safe to create it. Please also note that you must have an instance of this class available on the view that you are using as your redirect URI (the URL that the user is sent back to after authentication) so that the response from the authentication is handled properly.
+
+This is especially important if you are using the popup login method, since the `UserAgentApplication` class instance is the one that handles for instance closing of the popup dialog.
+
+Create the class instance like this.
+
+    var msalApp = new UserAgentApplication("<clientId>", "<authority>", undefined, {
+        redirectUri: "<redirectUri>"
+    })
+
+Generally, it is a good idea to define your redirect URI and stick with that, since you need to specify that also with the Azure AD application registration. And the redirect URI needs to be exactly right.
+
+
+Login
+-----
+
+When it is time to log your users in, for instance in response to clicking a button, you simply call the `loginPopup` method. There are other methods for login as well, but the popup method is a good choice because it keeps your user's context and view state.
+
+    msalApp.loginPopup(["user.read])
+        .then(idtoken => {
+            var usr = msalApp.getUser();
+            console.log("Current user", usr);
+
+            // Do whatever you need to do to respond
+            // to the user logging in.
+        })
+        .catch(err => {
+            console.warn(err);
+        });
+
+
+Logout
+------
+
+Currently there is only one method for logging out, which creates a redirect. To make the user log out use the following code.
+
+    msalApp.logout();
 
 
 Notes on login using the popup login window
